@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presentación Proyecto: Full Ice</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6; /* gray-100 */
+        }
+        .section-container {
+            @apply mb-12;
+        }
+        .section-title {
+            @apply text-3xl font-bold text-gray-800 mb-6 pb-2 border-b-2 border-blue-500;
+        }
+        .card {
+            @apply bg-white p-6 rounded-xl shadow-lg border border-gray-200 transition-transform duration-300 hover:scale-105;
+        }
+        .sub-card {
+             @apply bg-gray-50 p-4 rounded-lg border border-gray-200;
+        }
+        .icon {
+            @apply h-8 w-8 mb-3 text-blue-500;
+        }
+        .metric-card {
+            @apply p-6 rounded-xl shadow-2xl text-white text-center;
+        }
+        .metric-value {
+            @apply text-4xl font-extrabold tracking-tight;
+        }
+        .metric-label {
+            @apply text-lg font-medium opacity-90;
+        }
+    </style>
+</head>
+<body class="text-gray-700">
+
+    <div class="container mx-auto p-4 md:p-8">
+        <!-- Header -->
+        <header class="text-center mb-12">
+            <h1 class="text-5xl font-extrabold text-gray-900">Proyecto de Inversión: Full Ice</h1>
+            <p class="text-xl text-gray-500 mt-2">Producción y comercialización de hielo en Arias, Córdoba.</p>
+        </header>
+
+        <!-- SECCIÓN 1: LA IDEA -->
+        <div class="section-container">
+            <h2 class="section-title">La Idea Central</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Qué? -->
+                <div class="card text-center">
+                    <div class="flex justify-center">
+                        <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 9v.906a2.25 2.25 0 01-1.183 1.981l-6.478 3.488M2.25 9v.906a2.25 2.25 0 001.183 1.981l6.478 3.488m8.839 2.51-4.66-2.51m0 0-1.023-.55a2.25 2.25 0 00-2.134 0l-1.022.55m0 0-4.661 2.51m16.5 1.615a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V8.844a2.25 2.25 0 011.183-1.981l7.5-4.039a2.25 2.25 0 012.134 0l7.5 4.039a2.25 2.25 0 011.183 1.981V19.5z" /></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800">¿Qué?</h3>
+                    <p>Instalar una planta productora de <strong>hielo comestible</strong> en cilindros.</p>
+                </div>
+                <!-- Dónde? -->
+                <div class="card text-center">
+                    <div class="flex justify-center">
+                        <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" /></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800">¿Dónde?</h3>
+                    <p>En <strong>Arias, Córdoba</strong>, aprovechando un galpón propio en el parque industrial.</p>
+                </div>
+                <!-- Por qué? -->
+                <div class="card text-center">
+                     <div class="flex justify-center">
+                        <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800">¿Por qué?</h3>
+                    <p>Resolver una <strong>necesidad logística</strong>. El proveedor actual está a 45km y es inflexible.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECCIÓN 2: ESTUDIO DE MERCADO -->
+        <div class="section-container">
+            <h2 class="section-title">Estudio de Mercado</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Columna Izquierda -->
+                <div class="space-y-8">
+                    <div class="card">
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Análisis de la Demanda</h3>
+                        <div class="sub-card mb-4">
+                            <p class="font-semibold">Clientes Iniciales Confirmados:</p>
+                            <p class="text-blue-600 font-bold">CAFISO y CYLLENE (600 kg/semana)</p>
+                        </div>
+                         <div class="sub-card">
+                            <p class="font-semibold">Demanda Total Potencial (Local y Regional):</p>
+                            <p class="text-blue-600 font-bold">123.600 kg/año</p>
+                        </div>
+                    </div>
+                     <div class="card">
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Estrategia de Precio</h3>
+                         <div class="sub-card text-center">
+                            <p class="font-semibold">Costo real para el cliente (competencia):</p>
+                            <p class="text-red-600 line-through text-2xl font-bold">$14.700</p>
+                            <p class="text-xs">(Precio + Logística + Energía)</p>
+                            <p class="font-semibold mt-4">Nuestro Precio de Lanzamiento:</p>
+                            <p class="text-green-600 text-3xl font-bold">$9.600</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Columna Derecha -->
+                <div class="space-y-8">
+                     <div class="card">
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Análisis de la Oferta (La Oportunidad)</h3>
+                         <div class="sub-card">
+                            <p class="font-semibold">Competidor Único: <span class="text-red-600">Frío Delta S.A.</span></p>
+                            <ul class="list-disc list-inside text-sm mt-2 space-y-1">
+                                <li>Ubicado en Venado Tuerto (a 45 km).</li>
+                                <li>Entregas semanales y rígidas.</li>
+                                <li>Altos costos logísticos para el cliente.</li>
+                                <li>Mercado local insatisfecho en flexibilidad.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Canal de Comercialización</h3>
+                         <div class="sub-card text-center">
+                            <p class="text-2xl font-bold">Productor ➡️ Consumidor Final</p>
+                            <p class="mt-2 font-semibold">Ventajas Clave:</p>
+                             <p class="text-sm">Eliminación de intermediarios, entregas flexibles y diarias, y relación directa con el cliente.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECCIÓN 3: ESTUDIO TÉCNICO -->
+        <div class="section-container">
+            <h2 class="section-title">Estudio Técnico</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <div class="card">
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Maquinaria y Capacidad</h3>
+                    <div class="sub-card text-center">
+                        <p class="font-semibold">Equipo Principal:</p>
+                        <p class="text-blue-600 font-bold text-xl">ROLL ICE I-500</p>
+                        <p class="mt-4 font-semibold">Capacidad de Producción:</p>
+                        <p class="text-blue-600 font-bold text-xl">500 kg / día</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Localización y Layout</h3>
+                     <div class="sub-card">
+                        <p class="font-semibold">Ubicación:</p>
+                        <p>Galpón propio en <strong>Parque Industrial de Arias</strong>.</p>
+                        <p class="font-semibold mt-2">Ventajas:</p>
+                        <p class="text-sm">Sin costo de alquiler, acceso a Ruta 8, servicios industriales disponibles.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Punto de Equilibrio</h3>
+                    <div class="sub-card text-center">
+                        <p class="font-semibold">Nivel para cubrir costos:</p>
+                        <p class="text-blue-600 font-bold text-2xl">~ 1.050 kg/mes</p>
+                        <p class="text-sm mt-2">A partir de este punto, cada bolsa vendida genera ganancia neta.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECCIÓN 4: EVALUACIÓN ECONÓMICA -->
+        <div class="section-container">
+            <h2 class="section-title">Evaluación Económica y Financiera</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Inversión Inicial -->
+                <div class="card lg:col-span-2">
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Inversión Inicial Total</h3>
+                    <div class="sub-card text-center">
+                        <p class="text-4xl font-extrabold text-blue-600">$41.315.500</p>
+                        <p class="text-sm mt-2">(Incluye máquina, vehículo, instalación y puesta a punto)</p>
+                    </div>
+                </div>
+                <!-- Período de Recupero -->
+                <div class="card text-center flex flex-col justify-center">
+                     <h3 class="text-xl font-bold text-gray-800">Período de Recupero</h3>
+                     <p class="text-3xl font-bold text-blue-600 mt-2">4,75 años</p>
+                     <p class="text-xs mt-1">(Menor a la mitad de la vida útil del activo)</p>
+                </div>
+                 <!-- Financiación -->
+                 <div class="card text-center flex flex-col justify-center">
+                    <h3 class="text-xl font-bold text-gray-800">Financiación</h3>
+                    <p class="text-sm mt-2">Préstamo PyME para el <strong>80%</strong> de la inversión con período de gracia.</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
+                <!-- VAN -->
+                <div class="metric-card bg-gradient-to-br from-green-500 to-green-700">
+                    <p class="metric-label">Valor Actual Neto (VAN)</p>
+                    <p class="metric-value">$69.680.711</p>
+                    <p class="mt-2 opacity-90">El proyecto crea riqueza. <br><strong>VAN > 0 ¡SE ACEPTA!</strong></p>
+                </div>
+                <!-- TIR -->
+                <div class="metric-card bg-gradient-to-br from-blue-500 to-blue-700">
+                    <p class="metric-label">Tasa Interna de Retorno (TIR)</p>
+                    <p class="metric-value">45,84%</p>
+                    <p class="mt-2 opacity-90">La rentabilidad supera el costo de oportunidad (20%). <br><strong>TIR > Tasa de Corte ¡SE ACEPTA!</strong></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECCIÓN 5: CONCLUSIÓN -->
+        <div class="section-container">
+            <h2 class="section-title">Conclusión Final</h2>
+            <div class="card bg-gray-800 text-white p-8">
+                <h3 class="text-4xl font-bold text-center text-green-400">PROYECTO VIABLE Y RENTABLE</h3>
+                <div class="mt-6 grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+                    <div class="bg-gray-700 p-4 rounded-lg">
+                        <h4 class="font-bold">✓ Oportunidad Clara</h4>
+                        <p class="text-sm opacity-80">Mercado con demanda confirmada y competencia débil.</p>
+                    </div>
+                    <div class="bg-gray-700 p-4 rounded-lg">
+                        <h4 class="font-bold">✓ Sólido Financieramente</h4>
+                        <p class="text-sm opacity-80">Indicadores VAN y TIR muy positivos y robustos.</p>
+                    </div>
+                    <div class="bg-gray-700 p-4 rounded-lg">
+                        <h4 class="font-bold">✓ Ventaja Competitiva</h4>
+                        <p class="text-sm opacity-80">Precio, flexibilidad y cercanía inmejorables.</p>
+                    </div>
+                </div>
+                <p class="text-center mt-8 text-xl font-semibold">Recomendación: <strong>Avanzar con la inversión.</strong></p>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
