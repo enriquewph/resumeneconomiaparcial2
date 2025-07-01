@@ -19,7 +19,6 @@
             padding: 1.5rem;
             box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
             transition: all 0.3s ease;
-            break-inside: avoid;
         }
         .card:hover {
             transform: translateY(-5px);
@@ -87,49 +86,23 @@
             height: 2px;
             background-color: #d1d5db;
         }
-        @media print {
-            body * {
-                visibility: hidden;
-            }
-            #imprimible, #imprimible * {
-                visibility: visible;
-            }
-            #imprimible {
-                position: absolute;
-                left: 0;
-                top: 0;
-                width: 100%;
-            }
-            .no-print {
-                display: none;
-            }
-            .card {
-                box-shadow: none;
-                border: 1px solid #ccc;
-                margin-bottom: 1rem;
-            }
-            .tab-content.active {
-                display: block !important;
-            }
-        }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
 
     <div class="container mx-auto p-4 md:p-8">
         <!-- Header -->
-        <header class="text-center mb-10 no-print">
+        <header class="text-center mb-10">
             <h1 class="text-4xl md:text-5xl font-bold text-gray-900">Guía de Estudio Intensivo</h1>
             <p class="text-xl text-gray-600 mt-2">Economía de la Empresa</p>
         </header>
 
         <!-- Tabs Navigation -->
-        <div class="border-b border-gray-200 mb-8 no-print">
+        <div class="border-b border-gray-200 mb-8">
             <nav class="flex justify-center -mb-px flex-wrap">
-                <a class="tab" onclick="changeTab('capital')">Capital de la Empresa</a>
+                <a class="tab active" onclick="changeTab('capital')">Capital de la Empresa</a>
                 <a class="tab" onclick="changeTab('costos')">Costos</a>
-                <a class="tab active" onclick="changeTab('inversion')">Proyecto de Inversión</a>
-                <a class="tab" onclick="changeTab('imprimible')">Versión Imprimible</a>
+                <a class="tab" onclick="changeTab('inversion')">Proyecto de Inversión</a>
             </nav>
         </div>
 
@@ -983,38 +956,9 @@
 
 
         </div>
-
-                <!-- Tab Content: Printable Version -->
-        <div id="imprimible" class="tab-content">
-            <button onclick="window.print()" class="no-print mb-8 w-full bg-blue-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors">
-                Imprimir Guía Completa
-            </button>
-            
-            <!-- Capital de la Empresa Section -->
-            <h1 class="text-3xl font-bold text-center mb-6 mt-8">Unidad: Capital de la Empresa</h1>
-            <div id="capital-printable" class="space-y-6"></div>
-
-            <!-- Costos Section -->
-            <h1 class="text-3xl font-bold text-center mb-6 mt-12">Unidad: Costos</h1>
-            <div id="costos-printable" class="space-y-6"></div>
-
-            <!-- Proyecto de Inversión Section -->
-            <h1 class="text-3xl font-bold text-center mb-6 mt-12">Unidad: Proyecto de Inversión</h1>
-            <div id="inversion-printable" class="space-y-6"></div>
-        </div>
     </div>
 
     <script>
-        function populatePrintable() {
-            const capitalContent = document.getElementById('capital').innerHTML;
-            const costosContent = document.getElementById('costos').innerHTML;
-            const inversionContent = document.getElementById('inversion').innerHTML;
-
-            document.getElementById('capital-printable').innerHTML = capitalContent;
-            document.getElementById('costos-printable').innerHTML = costosContent;
-            document.getElementById('inversion-printable').innerHTML = inversionContent;
-        }
-
         function changeTab(tabId) {
             // Hide all tab contents
             const tabContents = document.querySelectorAll('.tab-content');
@@ -1034,43 +978,9 @@
             // Activate the selected tab
             document.querySelector(`[onclick="changeTab('${tabId}')"]`).classList.add('active');
         }
-
-        // Set initial tab and populate content
+        // Set initial tab
         document.addEventListener('DOMContentLoaded', () => {
-            const capitalHTML = `
-            <div class="card mb-6">
-                <h2 class="text-3xl font-bold text-center mb-6 text-gray-900">¿Qué es el Capital de una Empresa?</h2>
-                <p class="text-center text-lg mb-6">El término "capital" puede tener distintos significados según el contexto. Es clave diferenciarlos:</p>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                    <div class="p-4 bg-blue-50 rounded-lg border border-blue-200"><h3 class="font-bold text-blue-800">Capital Social</h3><p class="text-sm text-gray-700">Son los aportes (dinero o bienes) que los socios realizan al momento de crear la empresa. Es el capital inicial.</p></div>
-                    <div class="p-4 bg-green-50 rounded-lg border border-green-200"><h3 class="font-bold text-green-800">Capital Contable (Patrimonio Neto)</h3><p class="text-sm text-gray-700">Es el valor real de la empresa para los dueños. Se calcula como <code class="text-xs">Activo - Pasivo</code>. Incluye el capital inicial más las ganancias acumuladas.</p></div>
-                    <div class="p-4 bg-yellow-50 rounded-lg border border-yellow-200"><h3 class="font-bold text-yellow-800">Capital de Trabajo</h3><p class="text-sm text-gray-700">Son los recursos que necesita la empresa para operar en el día a día. Se calcula como <code class="text-xs">Activo Corriente - Pasivo Corriente</code>.</p></div>
-                    <div class="p-4 bg-purple-50 rounded-lg border border-purple-200"><h3 class="font-bold text-purple-800">Capital Humano</h3><p class="text-sm text-gray-700">Es el valor del conocimiento, habilidades y experiencia de los empleados. No es un valor contable, pero es crucial para la productividad.</p></div>
-                </div>
-            </div>
-            <div class="card mb-6 equation-box"><h2 class="text-2xl font-semibold text-center mb-4">La Ecuación Contable Fundamental</h2><div class="text-center text-xl md:text-2xl font-mono p-4 rounded-lg bg-white"><span class="text-blue-600">PATRIMONIO NETO</span> = <span class="text-green-600">ACTIVO</span> - <span class="text-red-600">PASIVO</span></div><p class="text-center mt-4 text-gray-600 text-lg">"Lo que realmente es de los <strong>DUEÑOS</strong> es la diferencia entre todo lo que la empresa <strong>TIENE</strong> y todo lo que <strong>DEBE</strong>."</p></div>
-            <div class="card mb-6"><h2 class="text-3xl font-bold text-center mb-6 text-gray-900">Resúmenes Visuales Clave</h2><div class="space-y-8"><div><h3 class="text-2xl font-semibold text-center mb-4">1. Estructura del Patrimonio</h3><div class="flex flex-col md:flex-row justify-center items-stretch gap-4"><div class="diagram-box flex-1"><h4 class="font-bold text-lg text-green-700">ACTIVO</h4><p class="text-sm">(Bienes y Derechos)</p><p class="mt-2">Lo que la empresa <strong>TIENE</strong></p></div><div class="diagram-arrow">=</div><div class="flex-1 flex flex-col gap-4"><div class="diagram-box"><h4 class="font-bold text-lg text-red-700">PASIVO</h4><p class="text-sm">(Deudas y Obligaciones)</p><p class="mt-2">Lo que la empresa <strong>DEBE</strong></p></div><div class="diagram-box"><h4 class="font-bold text-lg text-blue-700">PATRIMONIO NETO</h4><p class="text-sm">(Financiación Propia)</p><p class="mt-2">Lo que es de los <strong>DUEÑOS</strong></p></div></div></div></div><div><h3 class="text-2xl font-semibold text-center mb-4">2. Inversión: Capital Fijo vs. Capital Circulante</h3><div class="grid grid-cols-1 md:grid-cols-2 gap-4"><div class="diagram-box bg-blue-50 border-blue-200"><h4 class="font-bold text-lg text-blue-800">Capital Fijo (K)</h4><p class="text-sm mb-2">Inversión a largo plazo</p><p class="text-3xl mb-2">🏗️ 🖥️ 🚚</p><p><strong>Característica:</strong> Se consume en varios ciclos productivos.</p><p><strong>Retorno:</strong> Vía <strong>Depreciación</strong>.</p></div><div class="diagram-box bg-yellow-50 border-yellow-200"><h4 class="font-bold text-lg text-yellow-800">Capital Circulante (G)</h4><p class="text-sm mb-2">Inversión a corto plazo</p><p class="text-3xl mb-2">📦 💵 🧾</p><p><strong>Característica:</strong> Se consume en un solo ciclo productivo.</p><p><strong>Retorno:</strong> Vía <strong>Venta del producto</strong>.</p></div></div></div></div></div>
-            <div class="card bg-teal-50 border-teal-200"><h2 class="text-3xl font-bold text-center mb-6 text-teal-800">Preparación para el Coloquio</h2><div class="grid grid-cols-1 md:grid-cols-2 gap-8"><div><h3 class="text-xl font-semibold mb-4 text-teal-700">Preguntas de Repaso</h3><ul class="list-decimal list-inside space-y-3"><li>¿Cuál es la diferencia fundamental entre Capital Fijo y Capital Circulante? Dé ejemplos de cada uno.</li><li>Explique el concepto de depreciación y por qué solo se aplica al Capital Fijo.</li><li>¿Qué es el Patrimonio Neto y cómo se compone? Describa los tipos de Reservas.</li><li>¿Qué significa "racionalizar el capital circulante" y por qué es importante para la rentabilidad?</li><li>Describa el ciclo de explotación (o ciclo del capital circulante). ¿Qué es el "número de giros" (N) y qué indica?</li><li>Diferencie entre Capital Social, Capital Contable y Capital de Trabajo.</li></ul></div><div><h3 class="text-xl font-semibold mb-4 text-teal-700">Disparadores para Practicar</h3><p class="mb-3">Usa estas frases para empezar a explicar los temas en voz alta:</p><ul class="list-disc list-inside space-y-3"><li>"Para empezar, me gustaría explicar la estructura patrimonial de una empresa, que se compone de Activo, Pasivo y Patrimonio Neto..."</li><li>"Un concepto clave es la distinción entre la inversión fija y la circulante. El capital fijo se caracteriza por..."</li><li>"La rentabilidad de una empresa está directamente ligada a la gestión de su capital circulante. El objetivo de racionalizarlo es..."</li><li>"Dentro del Patrimonio Neto, las reservas cumplen una función estratégica. Existen tres tipos principales: la legal, la estatutaria y la facultativa..."</li><li>"El ciclo 'dinero-mercadería-dinero' es fundamental para entender el capital de trabajo. Este ciclo comienza con..."</li></ul></div></div></div>
-            `;
-            const costosHTML = `
-            <div class="card mb-6"><h2 class="text-3xl font-bold text-center mb-6 text-gray-900">Clasificación de Costos (Resumen Visual)</h2><div class="grid grid-cols-1 md:grid-cols-2 gap-6"><div class="space-y-4"><div class="p-4 rounded-lg bg-gray-100 border"><h3 class="font-bold text-lg">Según Comportamiento</h3><p class="text-sm"><strong>Fijos:</strong> No cambian con la producción (Alquiler).</p><p class="text-sm"><strong>Variables:</strong> Cambian con la producción (Materia Prima).</p></div><div class="p-4 rounded-lg bg-gray-100 border"><h3 class="font-bold text-lg">Según Función</h3><p class="text-sm"><strong>Fabricación:</strong> Para producir (MP, MOD, CIF).</p><p class="text-sm"><strong>Comercialización:</strong> Para vender (Publicidad).</p><p class="text-sm"><strong>Administración:</strong> Para gestionar (Sueldos gerencia).</p><p class="text-sm"><strong>Financieros:</strong> Por préstamos (Intereses).</p></div></div><div class="space-y-4"><div class="p-4 rounded-lg bg-gray-100 border"><h3 class="font-bold text-lg">Según su Objeto</h3><p class="text-sm"><strong>Directos:</strong> Se identifican en el producto (Madera en silla).</p><p class="text-sm"><strong>Indirectos (CIF):</strong> No se identifican fácilmente (Luz de fábrica).</p></div><div class="p-4 rounded-lg bg-gray-100 border"><h3 class="font-bold text-lg">Según el Tiempo</h3><p class="text-sm"><strong>Del Producto:</strong> Se activan, van al stock (MP).</p><p class="text-sm"><strong>Del Período:</strong> Son gasto del mes (Alquiler oficina).</p></div></div></div></div>
-            <div class="card mb-6"><h2 class="text-3xl font-bold text-center mb-6 text-gray-900">Costo Primo vs. Costo de Transformación</h2><div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-center"><div class="p-4 bg-gray-100 rounded-lg"><h3 class="text-xl font-semibold">Costo Primo</h3><p class="my-2">Es la suma de los principales costos directos de producción.</p><code class="block font-mono p-2 rounded-lg bg-white border">MP + MOD</code></div><div class="p-4 bg-gray-100 rounded-lg"><h3 class="text-xl font-semibold">Costo de Transformación (o Conversión)</h3><p class="my-2">Es el costo de "transformar" la materia prima en producto terminado.</p><code class="block font-mono p-2 rounded-lg bg-white border">MOD + CIF</code></div></div><div class="mt-6 text-center font-mono p-4 rounded-lg bg-teal-50 border border-teal-200 text-lg">Costo de Producción = Costo Primo + CIF</div></div>
-            <div class="card mb-6"><h2 class="text-3xl font-bold text-center mb-6 text-gray-900">Diferencias Clave: Absorción vs. Directo</h2><div class="overflow-x-auto"><table class="min-w-full bg-white border"><thead class="bg-gray-800 text-white"><tr><th class="py-2 px-4 border-b">Aspecto</th><th class="py-2 px-4 border-b">Costeo por Absorción</th><th class="py-2 px-4 border-b">Costeo Directo (Variable)</th></tr></thead><tbody class="text-sm"><tr class="bg-gray-50"><td class="py-3 px-4 border-b font-semibold">Costos Fijos de Producción</td><td class="py-3 px-4 border-b">Se consideran <strong>costo del producto</strong>. Se activan en el inventario.</td><td class="py-3 px-4 border-b">Se consideran <strong>costo del período</strong>. Van directamente al estado de resultados.</td></tr><tr><td class="py-3 px-4 border-b font-semibold">Valuación de Inventario (Stock)</td><td class="py-3 px-4 border-b"><strong>Más alta</strong>, porque incluye una porción de los costos fijos.</td><td class="py-3 px-4 border-b"><strong>Más baja</strong>, porque solo incluye los costos variables.</td></tr><tr class="bg-gray-50"><td class="py-3 px-4 border-b font-semibold">Efecto en la Utilidad</td><td class="py-3 px-4 border-b">La utilidad depende del volumen de <strong>PRODUCCIÓN</strong> y de las ventas.</td><td class="py-3 px-4 border-b">La utilidad depende únicamente del volumen de <strong>VENTAS</strong>.</td></tr><tr><td class="py-3 px-4 border-b font-semibold">Uso Principal</td><td class="py-3 px-4 border-b">Informes externos, contabilidad oficial, fiscal.</td><td class="py-3 px-4 border-b">Toma de decisiones internas, planeamiento, control de gestión.</td></tr></tbody></table></div><div class="mt-6 p-4 rounded-lg bg-indigo-50 border border-indigo-200"><h4 class="font-bold text-center mb-2">¿Cómo afecta la producción a la utilidad?</h4><ul class="list-disc list-inside space-y-1 text-sm"><li>Si <strong>Producción = Ventas</strong>, la utilidad es la misma en ambos métodos.</li><li>Si <strong>Producción > Ventas</strong>, la utilidad es MAYOR en Absorción (porque parte de los costos fijos quedan "guardados" en el stock que aumentó).</li><li>Si <strong>Producción < Ventas</strong>, la utilidad es MENOR en Absorción (porque se venden productos de stock de períodos anteriores que traen consigo costos fijos).</li></ul></div></div>
-            `;
-            const inversionHTML = `
-            <div class="card mb-6"><h2 class="text-3xl font-bold text-center mb-6 text-gray-900">¿Qué es un Proyecto de Inversión?</h2><p class="text-center text-lg mb-6">Un proyecto de inversión es un <strong>plan de acción</strong>, expresado en dinero, que busca generar una <strong>rentabilidad económica</strong> en un plazo determinado. Implica transformar activos financieros (dinero) en activos productivos (máquinas, insumos) para obtener un beneficio futuro.</p><div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center"><div class="p-4 bg-green-50 rounded-lg border border-green-200"><h3 class="font-bold text-xl text-green-800">Beneficio</h3><p>¿Cuánto se espera ganar?</p></div><div class="p-4 bg-red-50 rounded-lg border border-red-200"><h3 class="font-bold text-xl text-red-800">Riesgo</h3><p>¿Qué probabilidad hay de obtener esa ganancia?</p></div><div class="p-4 bg-blue-50 rounded-lg border border-blue-200"><h3 class="font-bold text-xl text-blue-800">Tiempo</h3><p>¿Cuándo se obtendrá la ganancia?</p></div></div></div>
-            <div class="card mb-6"><h2 class="text-3xl font-bold text-center mb-6 text-gray-900">Etapas de un Proyecto de Inversión</h2><div class="relative"><div class="flex flex-col md:flex-row justify-between items-center"><div class="absolute top-1/2 left-0 w-full h-0.5 bg-gray-300 hidden md:block" style="transform: translateY(-50%);"></div><div class="flex flex-col items-center text-center z-10 w-full md:w-1/5 mb-4 md:mb-0"><div class="step-circle mb-2">1</div><h3 class="font-semibold">Idea</h3><p class="text-sm">Detectar una necesidad.</p></div><div class="flex flex-col items-center text-center z-10 w-full md:w-1/5 mb-4 md:mb-0"><div class="step-circle mb-2">2</div><h3 class="font-semibold">Proyecto Preliminar</h3><p class="text-sm">Estudio inicial de viabilidad.</p></div><div class="flex flex-col items-center text-center z-10 w-full md:w-1/5 mb-4 md:mb-0"><div class="step-circle mb-2 bg-yellow-500">3</div><h3 class="font-semibold">Proyecto Definitivo</h3><p class="text-sm">Estudios detallados (Mercado, Técnico, etc.).</p></div><div class="flex flex-col items-center text-center z-10 w-full md:w-1/5 mb-4 md:mb-0"><div class="step-circle mb-2">4</div><h3 class="font-semibold">Diseño Final</h3><p class="text-sm">Ajustes de ingeniería.</p></div><div class="flex flex-col items-center text-center z-10 w-full md:w-1/5"><div class="step-circle mb-2">5</div><h3 class="font-semibold">Ejecución</h3><p class="text-sm">Puesta en marcha.</p></div></div></div></div>
-            <div class="card mb-6"><h2 class="text-3xl font-bold text-center mb-2 text-gray-900">Subetapa Clave: El Estudio de Mercado</h2><p class="text-center text-lg mb-6">Su objetivo es determinar la <strong>viabilidad comercial</strong> del proyecto. Responde a la pregunta: ¿Hay alguien dispuesto a comprar mi producto o servicio?</p><div class="p-4 rounded-lg bg-gray-50 border mb-6"><img src="https://i.imgur.com/gKkGZzL.png" alt="[Diagrama del Estudio de Mercado]" class="mx-auto rounded-lg shadow"></div><div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8"><div class="p-4 bg-gray-50 rounded-lg border-l-4 border-blue-500"><h4 class="font-bold text-xl mb-2">Análisis de Producto</h4>Define con precisión el bien o servicio a ofrecer: sus características físicas, usos, normas de calidad, empaque y posibles sustitutos. Es el punto de partida para todo el análisis.</div><div class="p-4 bg-gray-50 rounded-lg border-l-4 border-green-500"><h4 class="font-bold text-xl mb-2">Análisis de Demanda</h4>Estima la cantidad de producto que los consumidores desean comprar. Se estudia la demanda pasada (histórica), la actual y se proyecta a futuro para medir el tamaño del mercado.</div><div class="p-4 bg-gray-50 rounded-lg border-l-4 border-red-500"><h4 class="font-bold text-xl mb-2">Análisis de Oferta</h4>Identifica y estudia a la competencia: ¿quiénes son?, ¿cuánto producen?, ¿a qué precios venden? y ¿qué estrategias usan? Esto permite definir cómo competir.</div><div class="p-4 bg-gray-50 rounded-lg border-l-4 border-purple-500"><h4 class="font-bold text-xl mb-2">Análisis de Precio y Comercialización</h4>Determina el precio final del producto y cómo se hará llegar al cliente. El precio debe cubrir costos y ser competitivo. La comercialización busca entregar el producto en el lugar y momento adecuados (canales de distribución).</div></div><h3 class="text-2xl font-semibold text-center mb-4">Demanda vs. Oferta: ¿Hay Oportunidad?</h3><p class="text-center mb-4">Al comparar la demanda proyectada (lo que el mercado quiere comprar) con la oferta proyectada (lo que los competidores ofrecerán), se define la viabilidad del proyecto:</p><div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-center"><div class="p-4 bg-green-100 rounded-lg border border-green-300"><h4 class="text-xl font-bold text-green-800">Demanda > Oferta</h4><p><strong>Mercado Insatisfecho</strong></p><p class="mt-2">¡Ideal! Hay clientes sin atender. <strong>PROYECTO POSIBLE.</strong></p></div><div class="p-4 bg-yellow-100 rounded-lg border border-yellow-300"><h4 class="text-xl font-bold text-yellow-800">Demanda = Oferta</h4><p><strong>Mercado Satisfecho</strong></p><p class="mt-2">Riesgoso. Se debe "robar" clientes a la competencia. <strong>RE-EVALUAR.</strong></p></div><div class="p-4 bg-red-100 rounded-lg border border-red-300"><h4 class="text-xl font-bold text-red-800">Demanda < Oferta</h4><p><strong>Mercado Saturado</strong></p><p class="mt-2">No hay lugar para nuevos productos. <strong>PROYECTO NO ACONSEJABLE.</strong></p></div></div></div>
-            <div class="card mb-6"><h2 class="text-3xl font-bold text-center mb-2 text-gray-900">Subetapa Clave: El Estudio Técnico</h2><p class="text-center text-lg mb-6">Responde a las preguntas: <strong>¿Cómo, dónde, cuándo, cuánto y con qué producir?</strong> Define toda la operatoria y los recursos necesarios para que el proyecto funcione.</p><div class="p-4 rounded-lg bg-gray-50 border mb-8"><img src="https://i.imgur.com/gA3q5gH.png" alt="[Diagrama del Estudio Técnico]" class="mx-auto rounded-lg shadow-md"></div><div class="grid grid-cols-1 md:grid-cols-2 gap-6"><div class="p-4 bg-gray-50 rounded-lg border-l-4 border-cyan-500"><h4 class="font-bold text-xl mb-2">Tamaño y Localización</h4><p><strong>Tamaño:</strong> Define la capacidad de producción (¿cuánto producir?). Se busca un <strong>tamaño óptimo</strong> que minimice costos, superando el <strong>tamaño mínimo</strong> (punto de equilibrio).<br><strong>Localización:</strong> Decide la ubicación geográfica de la planta (¿dónde producir?), analizando factores como cercanía a mercados y proveedores.</p></div><div class="p-4 bg-gray-50 rounded-lg border-l-4 border-teal-500"><h4 class="font-bold text-xl mb-2">Ingeniería del Proyecto</h4><p>Detalla el proceso productivo (¿cómo producir?). Define la tecnología, maquinarias (Capital Fijo - K), materias primas, mano de obra y gastos operativos (Capital Circulante - G) necesarios.</p></div><div class="p-4 bg-gray-50 rounded-lg border-l-4 border-amber-500"><h4 class="font-bold text-xl mb-2">Organización y Cronogramas</h4><p>Define la estructura de la empresa (organigrama, aspectos legales) y planifica los tiempos de ejecución (¿cuándo?). Se usan herramientas como el <strong>diagrama de Gantt</strong> para programar las tareas.</p></div><div class="p-4 bg-gray-50 rounded-lg border-l-4 border-indigo-500"><h4 class="font-bold text-xl mb-2">Financiamiento y Flujo de Fondos</h4><p>Determina de dónde saldrá el dinero (¿con qué?). Analiza las fuentes de financiación (propias o de terceros) y proyecta el <strong>Flujo de Fondos</strong>, que es el movimiento de ingresos y egresos de dinero del proyecto a lo largo del tiempo.</p></div></div></div>
-            <div class="card mb-6"><h2 class="text-3xl font-bold text-center mb-6 text-gray-900">Subetapa Final: Evaluación Económica-Financiera</h2><p class="text-center text-lg mb-6">Aquí se determina si el proyecto es rentable. Usando datos cuantitativos, se decide si conviene o no realizar la inversión. La pregunta clave es: <strong>¿El proyecto genera más dinero del que cuesta?</strong></p><div class="p-4 mb-8 bg-blue-50 rounded-lg border-l-4 border-blue-500"><div class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-600 mr-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg><div><h3 class="font-bold text-xl text-blue-800">Concepto Clave: El Valor del Dinero en el Tiempo</h3><p class="text-sm text-gray-700">Un peso hoy vale más que un peso mañana. Esto se debe a la inflación y al costo de oportunidad (el dinero de hoy se puede invertir para ganar más). Los métodos de evaluación se dividen según si consideran o no este principio.</p></div></div></div><div class="grid grid-cols-1 lg:grid-cols-2 gap-8"><div><h3 class="text-2xl font-semibold text-center mb-4">Métodos Estáticos <span class="font-normal text-red-600">(No consideran el tiempo)</span></h3><div class="space-y-6"><div class="p-4 bg-gray-100 rounded-lg border"><h4 class="font-bold text-lg">1. Tasa de Rendimiento Contable (TRC)</h4><p class="text-sm mt-1"><strong>¿Qué mide?</strong> La utilidad anual promedio por cada peso invertido.</p><p class="text-sm mt-1"><strong>Fórmula:</strong> <code class="text-xs">(Beneficio Promedio - Depreciación) / Inversión Total</code></p><p class="text-sm mt-1"><strong>Decisión:</strong> Se acepta si <strong>TRC > k</strong> (tasa de corte o rentabilidad mínima exigida).</p><p class="text-xs mt-2 text-red-600"><strong>Desventaja:</strong> Simple, pero ignora cuándo se reciben los beneficios.</p></div><div class="p-4 bg-gray-100 rounded-lg border"><h4 class="font-bold text-lg">2. Período de Recupero (PR)</h4><p class="text-sm mt-1"><strong>¿Qué mide?</strong> El tiempo necesario para recuperar la inversión inicial.</p><p class="text-sm mt-1"><strong>Fórmula:</strong> <code class="text-xs">Inversión / Beneficio Anual Promedio</code></p><p class="text-sm mt-1"><strong>Decisión:</strong> Se prefiere el proyecto con el <strong>menor tiempo de recupero</strong>.</p><p class="text-xs mt-2 text-red-600"><strong>Desventaja:</strong> Ignora las ganancias obtenidas después del período de recupero.</p></div></div></div><div><h3 class="text-2xl font-semibold text-center mb-4">Métodos Dinámicos <span class="font-normal text-green-600">(Sí consideran el tiempo)</span></h3><div class="space-y-6"><div class="p-4 bg-green-50 rounded-lg border border-green-300"><h4 class="font-bold text-lg text-green-800">1. Valor Actual Neto (VAN)</h4><p class="text-sm mt-1"><strong>¿Qué mide?</strong> El valor en pesos de hoy de todas las ganancias futuras del proyecto, descontando la inversión inicial.</p><p class="text-sm mt-1"><strong>Concepto:</strong> Trae todos los flujos de dinero futuros a su valor presente usando una tasa de descuento (k).</p><p class="text-sm mt-1"><strong>Decisión:</strong> Se acepta si <strong>VAN > 0</strong>. Un VAN positivo significa que el proyecto genera más valor que la rentabilidad mínima exigida.</p></div><div class="p-4 bg-green-50 rounded-lg border border-green-300"><h4 class="font-bold text-lg text-green-800">2. Tasa Interna de Retorno (TIR)</h4><p class="text-sm mt-1"><strong>¿Qué mide?</strong> La tasa de rentabilidad intrínseca del proyecto. Es la tasa de interés que hace que el VAN sea igual a cero.</p><p class="text-sm mt-1"><strong>Concepto:</strong> Es el rendimiento porcentual que genera la inversión por sí misma.</p><p class="text-sm mt-1"><strong>Decisión:</strong> Se acepta si <strong>TIR > k</strong>. Significa que la rentabilidad del proyecto es mayor que el costo de oportunidad del capital.</p></div></div></div></div><div class="mt-8 p-4 bg-indigo-50 rounded-lg border-t-4 border-indigo-400"><h3 class="text-2xl font-semibold text-center mb-4 text-indigo-800">Diferencia Clave: VAN vs. TIR</h3><div class="flex flex-col md:flex-row justify-around text-center gap-4"><div><h4 class="font-bold text-lg">VAN</h4><p><strong>Resultado:</strong> Un monto de dinero ($).</p><p><strong>Depende de:</strong> La tasa de corte (k) que elija el inversor.</p><p class="mt-2 text-sm"><strong>Pregunta que responde:</strong> ¿Cuánta riqueza genera el proyecto, en pesos de hoy?</p></div><div class="w-px bg-indigo-200 hidden md:block"></div><div><h4 class="font-bold text-lg">TIR</h4><p><strong>Resultado:</strong> Un porcentaje (%).</p><p><strong>Depende de:</strong> Los flujos de caja propios del proyecto.</p><p class="mt-2 text-sm"><strong>Pregunta que responde:</strong> ¿Cuál es la rentabilidad porcentual que el proyecto genera por sí mismo?</p></div></div></div></div>
-            `;
-
-            document.getElementById('capital').innerHTML = capitalHTML;
-            document.getElementById('costos').innerHTML = costosHTML;
-            document.getElementById('inversion').innerHTML = inversionHTML;
-            
-            populatePrintable();
-            changeTab('inversion');
+             changeTab('capital');
         });
     </script>
 
