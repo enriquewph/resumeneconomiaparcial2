@@ -145,7 +145,7 @@
                 <!-- Columna Izquierda: Activo y Pasivo -->
                 <div class="space-y-8">
                     <!-- Activo -->
-                    <div class="card">
+                    <div class="card mb-10">
                         <div class="flex items-center mb-4">
                             <svg class="icon text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21 12a2.25 2.25 0 00-2.25-2.25H15a3 3 0 11-6 0H5.25A2.25 2.25 0 003 12m18 0v6a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 18v-6m18 0V9M3 12V9m18 3a2.25 2.25 0 00-2.25-2.25H5.25A2.25 2.25 0 003 12m15 0a2.25 2.25 0 01-2.25 2.25H15a3 3 0 11-6 0H6.75A2.25 2.25 0 019 12" /></svg>
                             <h2 class="text-3xl font-bold text-green-600">Activo</h2>
@@ -172,7 +172,7 @@
                     </div>
 
                     <!-- Pasivo -->
-                    <div class="card">
+                    <div class="card mb-10">
                         <div class="flex items-center mb-4">
                             <svg class="icon text-red-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h3m-3.75 3h15a2.25 2.25 0 002.25-2.25V6.75A2.25 2.25 0 0019.5 4.5h-15A2.25 2.25 0 002.25 6.75v10.5A2.25 2.25 0 004.5 19.5z" /></svg>
                             <h2 class="text-3xl font-bold text-red-600">Pasivo</h2>
@@ -203,7 +203,7 @@
                 <!-- Columna Derecha: Patrimonio Neto y Reservas -->
                 <div class="space-y-8">
                     <!-- Patrimonio Neto -->
-                    <div class="card">
+                    <div class="card mb-10">
                         <div class="flex items-center mb-4">
                            <svg class="icon text-blue-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" /></svg>
                             <h2 class="text-3xl font-bold text-blue-600">Patrimonio Neto</h2>
@@ -294,7 +294,7 @@
             </div>
 
             <!-- Cuadro de Resultados -->
-            <div class="card">
+            <div class="card mb-10">
                 <h2 class="text-3xl font-bold text-center mb-6 text-gray-900">El Cuadro de Resultados (Resumen)</h2>
                 <p class="text-center mb-4">Este informe muestra cómo se generó el resultado (ganancia o pérdida) de un período.</p>
                 <div class="p-6 bg-gray-100 rounded-lg border font-mono text-center space-y-2 text-lg">
@@ -307,7 +307,7 @@
             </div>
 
             <!-- Composición del Capital o Inversión -->
-            <div class="card">
+            <div class="card mb-10">
                 <h2 class="text-3xl font-bold text-center mb-6 text-gray-900">Composición del Capital o Inversión</h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <!-- Capital Fijo -->
@@ -347,7 +347,7 @@
             </div>
 
             <!-- Racionalización del Capital Circulante -->
-            <div class="card">
+            <div class="card mb-10">
                 <h2 class="text-3xl font-bold text-center mb-6 text-gray-900">Racionalización del Capital Circulante (G)</h2>
                 <p class="text-center text-lg mb-6">Racionalizar el capital circulante significa <strong>determinar su magnitud correcta y óptima</strong> para la realidad de la empresa. El objetivo es <strong>disminuir el capital inmovilizado (G)</strong> para mejorar la rentabilidad, sin afectar la operación.</p>
                 
@@ -734,7 +734,7 @@
             </div>
 
             <!-- Estudio de Mercado -->
-            <div class="card">
+            <div class="card mb-10">
                 <h2 class="text-3xl font-bold text-center mb-2 text-gray-900">Subetapa Clave: El Estudio de Mercado</h2>
                 <p class="text-center text-lg mb-6">Su objetivo es determinar la <strong>viabilidad comercial</strong> del proyecto. Responde a la pregunta: ¿Hay alguien dispuesto a comprar mi producto o servicio?</p>
                 
@@ -805,6 +805,72 @@
                         <p><strong>Mercado Saturado</strong></p>
                         <p class="mt-2">No hay lugar para nuevos productos. <strong>PROYECTO NO ACONSEJABLE.</strong></p>
                     </div>
+                </div>
+            </div>
+
+            
+            <!-- Estudio Técnico -->
+            <div class="card mb-10">
+                <h2 class="text-3xl font-bold text-center mb-2 text-gray-900">El Estudio Técnico</h2>
+                <p class="text-center text-lg mb-6">Responde a las preguntas: <strong>¿Cómo, dónde, cuándo, cuánto y con qué producir?</strong> Define toda la operatoria y los recursos necesarios para que el proyecto funcione.</p>
+                
+                <div class="p-4 rounded-lg bg-gray-50 border mb-8">
+                    <img src="estudiotecnico.jpg" alt="[Diagrama del Estudio Técnico]" class="mx-auto rounded-lg shadow-md">
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="p-4 bg-gray-50 rounded-lg border-l-4 border-cyan-500">
+                        <h4 class="font-bold text-xl mb-2">Tamaño y Localización</h4>
+                        <p><strong>Tamaño:</strong> Define la capacidad de producción (¿cuánto producir?). Se busca un <strong>tamaño óptimo</strong> que minimice costos, superando el <strong>tamaño mínimo</strong> (punto de equilibrio).<br><strong>Localización:</strong> Decide la ubicación geográfica de la planta (¿dónde producir?), analizando factores como cercanía a mercados y proveedores.</p>
+                    </div>
+                     <div class="p-4 bg-gray-50 rounded-lg border-l-4 border-teal-500">
+                        <h4 class="font-bold text-xl mb-2">Ingeniería del Proyecto</h4>
+                        <p>Detalla el proceso productivo (¿cómo producir?). Define la tecnología, maquinarias (Capital Fijo - K), materias primas, mano de obra y gastos operativos (Capital Circulante - G) necesarios.</p>
+                    </div>
+                    <div class="p-4 bg-gray-50 rounded-lg border-l-4 border-amber-500">
+                        <h4 class="font-bold text-xl mb-2">Organización y Cronogramas</h4>
+                        <p>Define la estructura de la empresa (organigrama, aspectos legales) y planifica los tiempos de ejecución (¿cuándo?). Se usan herramientas como el <strong>diagrama de Gantt</strong> para programar las tareas.</p>
+                    </div>
+                    <div class="p-4 bg-gray-50 rounded-lg border-l-4 border-indigo-500">
+                        <h4 class="font-bold text-xl mb-2">Financiamiento y Flujo de Fondos</h4>
+                        <p>Determina de dónde saldrá el dinero (¿con qué?). Analiza las fuentes de financiación (propias o de terceros) y proyecta el <strong>Flujo de Fondos</strong>, que es el movimiento de ingresos y egresos de dinero del proyecto a lo largo del tiempo.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Foco en Tamaño de la Inversión -->
+            <div class="card mb-10">
+                <h2 class="text-3xl font-bold text-center mb-6 text-gray-900">Foco en el Tamaño de la Inversión: ¿Cuánto Producir?</h2>
+                <p class="text-center text-lg mb-6">Definir el tamaño es una de las decisiones más críticas. No se trata solo de la capacidad física, sino de encontrar el nivel de producción que equilibre la demanda del mercado con la rentabilidad y los recursos disponibles.</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+                    <!-- Tamaño Mínimo -->
+                    <div class="p-4 bg-red-50 rounded-lg border border-red-200">
+                        <div class="flex justify-center mb-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3" /></svg>
+                        </div>
+                        <h3 class="font-bold text-xl text-red-800">Tamaño Mínimo</h3>
+                        <p class="mt-2 text-sm">Es el volumen de producción donde los <strong>Ingresos Totales = Costos Totales</strong>. Es el <strong>Punto de Equilibrio</strong>. Producir menos que esto genera pérdidas.</p>
+                    </div>
+                    <!-- Tamaño Óptimo -->
+                    <div class="p-4 bg-green-50 rounded-lg border border-green-200">
+                         <div class="flex justify-center mb-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" /></svg>
+                        </div>
+                        <h3 class="font-bold text-xl text-green-800">Tamaño Óptimo</h3>
+                        <p class="mt-2 text-sm">Es el nivel de producción que logra la <strong>máxima rentabilidad</strong> o el <strong>costo unitario más bajo</strong>. Es el objetivo ideal desde el punto de vista económico.</p>
+                    </div>
+                    <!-- Tamaño Propuesto -->
+                    <div class="p-4 bg-blue-50 rounded-lg border border-blue-200">
+                         <div class="flex justify-center mb-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" /></svg>
+                        </div>
+                        <h3 class="font-bold text-xl text-blue-800">Tamaño Propuesto</h3>
+                        <p class="mt-2 text-sm">Es el tamaño que <strong>finalmente se elige</strong> para el proyecto, considerando factores reales como la demanda que se puede captar, la tecnología disponible y el financiamiento.</p>
+                    </div>
+                </div>
+                <div class="mt-6 p-4 bg-gray-100 rounded-lg">
+                    <h4 class="font-semibold text-center">Factores que determinan el tamaño:</h4>
+                    <p class="text-center text-sm text-gray-600">La decisión final no es solo teórica, depende de la Demanda, el Financiamiento, la Tecnología disponible, los Insumos y la Organización.</p>
                 </div>
             </div>
 
